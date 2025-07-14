@@ -1,0 +1,4 @@
+bridge.timeout=5
+terminal.timeout=5
+scheduler.ping=120
+scheduler.terminal=60
