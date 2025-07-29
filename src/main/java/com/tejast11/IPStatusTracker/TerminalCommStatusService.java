@@ -110,8 +110,11 @@ public class TerminalCommStatusService {
 
     private Long getCurrentTimeStampId(int terminalId) {
         Document doc = cdNuts.find(Filters.eq("TerminalId", terminalId)).first();
-        if (doc != null) {
-            return doc.getLong("TimeStampId");
+        if (doc != null && doc.containsKey("TimeStampId")) {
+            Object value = doc.get("TimeStampId");
+            if (value instanceof Number) {
+                return ((Number) value).longValue();  // Safely handles Integer, Long, etc.
+            }
         }
         return null;
     }
