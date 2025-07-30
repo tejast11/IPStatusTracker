@@ -26,7 +26,7 @@ public class PingStatusService {
         this.timeoutConfig = timeoutConfig;
         this.collection = database.getCollection("ESComStat");
     }
-    @Scheduled(fixedDelayString = "#{@timeoutConfig.getPingSchedulerTime()}")
+    @Scheduled(fixedDelayString = "#{@timeoutConfig.getSchedulerTime()}")
     public void checkPingStatus() {
         log.info("Ping Started");
         int timeout = timeoutConfig.getPingTimeoutMs();

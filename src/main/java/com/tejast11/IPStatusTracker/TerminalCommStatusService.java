@@ -29,7 +29,7 @@ public class TerminalCommStatusService {
         this.esComStat = database.getCollection("ESComStat");
     }
 
-    @Scheduled(fixedRateString = "#{@timeoutConfig.getTerminalSchedulerTime()}")
+    @Scheduled(fixedRateString = "#{@timeoutConfig.getSchedulerTime()}")
     public void checkTerminalStatus() {
         log.info("[COMM] Terminal communication status check started...");
         long timeoutMs = timeoutConfig.getTerminalTimeoutMs();

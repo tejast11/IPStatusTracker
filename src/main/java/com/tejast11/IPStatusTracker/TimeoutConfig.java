@@ -34,10 +34,7 @@ public class TimeoutConfig {
     public int getTerminalTimeoutMs() {
         return getTimeoutFromFile("terminal.timeout");
     }
-    public int getPingSchedulerTime(){
-        return getTimeoutFromFile("scheduler.ping");
-    }
-    public int getTerminalSchedulerTime(){
-        return getTimeoutFromFile("scheduler.terminal");
+    public int getSchedulerTime(){
+        return getTimeoutFromFile("scheduler.time");
     }
 }
