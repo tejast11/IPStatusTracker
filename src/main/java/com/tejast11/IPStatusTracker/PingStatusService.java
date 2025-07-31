@@ -34,6 +34,11 @@ public class PingStatusService {
             String ip = doc.getString("IpNo");
             boolean oldStatus = doc.getBoolean("Status", false);
 
+            if(ip.equals(null)){
+                log.info("[PING] IpNo. field is null for this document");
+                continue;
+            }
+            
             Date individualPingTime = Date.from(Instant.now());
             boolean reachable = pingIP(ip, timeout);
 
